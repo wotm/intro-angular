@@ -1,0 +1,19 @@
+img.thumb {
+	width: 100px;
+	border: 1px black solid;
+}
+
+.student-card {
+	padding: 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+.note {
+	width: 30px;
+}
+
+input {
+	border-radius: 5px;
+}

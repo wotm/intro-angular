@@ -1,0 +1,20 @@
+<div class="row student-card">
+	<div class="col-md-5">
+		<img class="thumb" [src]="student.photo" alt="">
+	</div>
+	<div class="col-md-7">
+		<h3><a routerLink="/students/{{ student.id }}">{{ student.firstName }} {{ student.lastName }}</a></h3>
+		<p>Groupe : {{ student.group }}</p>
+		<table>
+			<tr *ngFor="let note of student.notes; index as i ">
+				<td>Note {{ i+1 }} : </td>
+				<td>
+					<strong *ngIf="!editMode">{{ note }}</strong>
+					<input class="note" *ngIf="editMode" [value]="note" (keyup)="inputChange($event, i)">
+				</td>
+				<span>/20</span>
+			</tr>
+		</table>
+		<p>Moyenne générale : {{ studentService.getAverage(student.notes) }}</p>
+	</div>
+</div>

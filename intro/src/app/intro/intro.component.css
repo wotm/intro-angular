@@ -1,0 +1,30 @@
+span.injured {
+	color: red;
+	font-weight: bold;
+}
+
+.studentPhoto {
+	width: 90px;
+}
+
+.visible {
+	display: block;
+}
+
+.not-visible {
+	display: none;
+}
+
+.goodStudent {
+	color: green;
+	font-size: 16pt;
+}
+
+h1, h2, p {
+	text-align: center;
+}
+
+caption { 
+    text-align: center;
+    caption-side: top;
+}

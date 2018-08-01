@@ -1,0 +1,61 @@
+<h1 style="color: orange">Angular : introduction au framework</h1>
+<p>{{ message }}</p> <!-- {{}} : property binding (lecture) -->
+<span style="text-align: center; display:block;" id="{{id}}" [innerText]="message"></span> <br /><br />
+<img class="rounded mx-auto d-block"  [src]="urlImage" alt=""> <br /><br />
+
+<h2>Student</h2>
+<p>{{student.name}} ( {{student.age}} ans)</p> <br /><br />
+
+<table class="table table-bordered table-striped">
+  <caption>Players list</caption>
+  <tr>
+    <th>Last Name</th>
+    <th>Team</th>
+    <th>Number</th>
+    <th>Health condition</th>
+  </tr>
+  <tr *ngFor="let player of players">
+    <td>{{player.name}}</td>
+    <td>{{player.team}}</td>
+    <td>{{player.num}}</td>
+    <td>
+      <span *ngIf="player.injured" class="injured">Injured</span>
+      <span *ngIf="!player.injured">Operational</span>
+    </td>
+  </tr>
+</table>
+
+<button (click)="test()" class="btn btn-primary">Test</button> <br /><br />
+<span>Counter : {{compteur}}</span> <br /><br />
+<p *ngIf="compteur==10">Basta !</p>
+<p [ngStyle]="style1" [ngClass]="{'visible':compteur==10, 'not-visible':compteur!=10}">Dosta !!!</p> <br /><br />
+
+<input type="checkbox" (click)="highlightStudents()"><span> Good students</span> <br /><br />
+
+<select (change)="selectGroup($event)">
+  <option value="0">Sélectionnez un groupe</option>
+  <option *ngFor="let group of groups">{{group}}</option>
+</select> <br /><br />
+
+<table class="table table-bordered table-striped">
+  <caption>Student list</caption>
+  <tr>
+    <th>Photo</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Group</th>
+    <th>Average</th>
+  </tr>
+  <tr *ngFor="let student of students" [ngStyle]="{'display':student.group == selectedGroup || selectedGroup == '0' ? 'table-row' : 'none'}">
+    <td><img class="studentPhoto rounded" src="{{student.photo}}" alt="{{student.firstName}} {{student.lastName}}"></td>
+    <td>{{student.firstName}}</td>
+    <td>{{student.lastName}}</td>
+    <td>{{student.group}}</td>
+    <td [ngClass]="{'goodStudent':getAverage(student.notes)>10 && highlightGoodStudents}">{{getAverage(student.notes)}}</td>
+  </tr>
+</table>
+
+<!-- <button (click)="testAjax()">Test ajax</button>
+<div *ngFor="let image of images">
+  <img [id]="image.id" [src]="image.url" [alt]="image.alt">
+</div> -->
